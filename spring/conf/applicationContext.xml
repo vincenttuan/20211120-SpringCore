@@ -50,6 +50,16 @@
 		p:name="Java" p:price="700" p:author-ref="author3"
 	 />
 	
+	<bean id="book3" class="com.study.spring.case01.Book">
+		<constructor-arg value="Python" />
+		<constructor-arg value="450" />
+		<constructor-arg ref="author4" />
+	</bean>
+	
+	<bean id="book4" class="com.study.spring.case01.Book"
+		c:name="VB.NET" c:price="300" c:author-ref="author5"
+	/>
+	
 </beans>
 
 

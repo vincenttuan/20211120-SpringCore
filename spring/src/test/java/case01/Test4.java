@@ -15,6 +15,12 @@ public class Test4 {
 		Book b2 = ctx.getBean("book2", Book.class);
 		System.out.println(b2);
 		
+		Book b3 = ctx.getBean("book3", Book.class);
+		System.out.println(b3);
+		
+		Book b4 = ctx.getBean("book4", Book.class);
+		System.out.println(b4);
+		
 	}
 	
 }

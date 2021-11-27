@@ -5,6 +5,16 @@ public class Book {
 	private Integer price;
 	private Author author;
 	
+	public Book() {
+		
+	}
+	
+	public Book(String name, Integer price, Author author) {
+		this.name = name;
+		this.price = price;
+		this.author = author;
+	}
+	
 	public String getName() {
 		return name;
 	}
