@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.study.spring.case02.classroom.Student;
+import com.study.spring.case02.classroom.Teacher;
 
 public class Test1 {
 	
@@ -19,6 +20,9 @@ public class Test1 {
 		};
 		
 		Arrays.stream(students).forEach(System.out::println);
+		
+		Teacher teacher1 = ctx.getBean("teacher1", Teacher.class);
+		System.out.println(teacher1);
 	}
 	
 }
