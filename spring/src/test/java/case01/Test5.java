@@ -24,6 +24,9 @@ public class Test5 {
 		
 		Wife w2 = ctx.getBean("wife2", Wife.class);
 		System.out.println(w2);
+		
+		System.out.println(h1.getName());
+		System.out.println(h1.getWife().getHusband().getName());
 	}
 	
 }

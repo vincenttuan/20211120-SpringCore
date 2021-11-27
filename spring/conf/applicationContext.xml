@@ -85,6 +85,15 @@
 		c:name="Tom" p:wife-ref="wife2"
 	/>
 	
+	<bean id="dog" class="com.study.spring.case01.Dog" p:name="拉不拉多" />
+	<bean id="dog2" class="com.study.spring.case01.Dog" p:name="柴犬" />
+	<bean id="cat" class="com.study.spring.case01.Cat" p:name="波斯貓" />
+	
+	<bean id="turnOn" class="com.study.spring.case01.TurnOn"
+		init-method="init"
+		destroy-method="destroy"
+	 />
+	
 </beans>
 
 
