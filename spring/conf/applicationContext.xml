@@ -5,7 +5,9 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
-    
+	
+	
+	    
 	<bean id="author" class="com.study.spring.case01.Author" ></bean>
 	
 	<bean id="author2" class="com.study.spring.case01.Author" >
@@ -58,6 +60,29 @@
 	
 	<bean id="book4" class="com.study.spring.case01.Book"
 		c:name="VB.NET" c:price="300" c:author-ref="author5"
+	/>
+	
+	<bean scope="singleton" id="husband" class="com.study.spring.case01.Husband">
+		<property name="name">
+			<value>John</value>
+		</property>
+		<property name="wife" ref="wife" />	
+	</bean>
+	
+	<bean scope="singleton" id="wife" class="com.study.spring.case01.Wife">
+		<property name="name">
+			<value>Mary</value>
+		</property>
+		<property name="husband" ref="husband" />
+	</bean>
+	
+	<!-- 注意(坑): 使用建構子注入 husband 與 wife 的參照要使用 p, 否則會發生遞迴錯誤 -->
+	<bean scope="singleton" id="wife2" class="com.study.spring.case01.Wife"
+		c:name="Helen" p:husband-ref="husband2"
+	/> 
+	
+	<bean scope="singleton" id="husband2" class="com.study.spring.case01.Husband"
+		c:name="Tom" p:wife-ref="wife2"
 	/>
 	
 </beans>
