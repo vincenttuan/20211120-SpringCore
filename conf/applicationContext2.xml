@@ -36,6 +36,49 @@
 		p:id="102" autowire="constructor"
 	/>
 	
+	<!-- ******************************************************************* -->
+	
+	<bean id="clazz1" class="com.study.spring.case02.classroom.Clazz" 
+		p:id="101" p:name="Program" p:credit="3"
+	/>
+	<bean id="clazz2" class="com.study.spring.case02.classroom.Clazz" 
+		p:id="102" p:name="Math" p:credit="2"
+	/>
+	<bean id="clazz3" class="com.study.spring.case02.classroom.Clazz" 
+		p:id="103" p:name="English" p:credit="1"
+	/>
+	
+	<bean id="student1" class="com.study.spring.case02.classroom.Student" 
+		p:id="201" p:name="John">
+		<property name="clazzs">
+			<set>
+				<ref bean="clazz1" />
+				<ref bean="clazz3" />
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="student2" class="com.study.spring.case02.classroom.Student" 
+		p:id="202" p:name="Mary">
+		<property name="clazzs">
+			<set>
+				<ref bean="clazz2" />
+				<ref bean="clazz3" />
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="student3" class="com.study.spring.case02.classroom.Student" 
+		p:id="203" p:name="Helen">
+		<property name="clazzs">
+			<set>
+				<ref bean="clazz1" />
+				<ref bean="clazz2" />
+				<ref bean="clazz3" />
+			</set>
+		</property>
+	</bean>
+	
 </beans>
 
 
