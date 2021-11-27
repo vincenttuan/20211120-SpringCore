@@ -34,6 +34,21 @@
 		  class="com.study.spring.case01.Author"
 		  c:name="Tom" c:sex="M" c:age="25" />
 	
+	<bean id="lotto" scope="prototype" class="com.study.spring.case01.Lotto" />
+	
+	<bean id="book" class="com.study.spring.case01.Book">
+		<property name="name">
+			<value>String</value>
+		</property>
+		<property name="price">
+			<value>600</value>
+		</property>
+		<property name="author" ref="author2" />
+	</bean>
+	
+	<bean id="book2" class="com.study.spring.case01.Book"
+		p:name="Java" p:price="700" p:author-ref="author3"
+	 />
 	
 </beans>
 
