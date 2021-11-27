@@ -110,6 +110,8 @@
 	
 	<bean id="car" class="com.study.spring.case02.motor.CarFactory" />
 	
+	<bean id="myStock" class="com.study.spring.case02.stock.MyStockFactory" />
+	
 </beans>
 
 
