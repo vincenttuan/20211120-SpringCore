@@ -41,6 +41,13 @@ public class Teacher {
 	public void setSalary(Map<String, Integer> salary) {
 		this.salary = salary;
 	}
+	
+	public int getTotalByStudentCredit() {
+		return getStudents().stream()
+				.mapToInt(s -> s.getTotalCredits())
+				.sum();
+	}
+	
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", name=" + name + ", students=" + students + ", subjects=" + subjects

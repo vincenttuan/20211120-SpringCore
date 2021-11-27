@@ -108,6 +108,7 @@
 	<bean id="teacher1" class="com.study.spring.case02.classroom.Teacher"
 		p:id="301" p:name="Bob" p:students-ref="students" p:subjects-ref="subjects" p:salary-ref="salary" />
 	
+	
 </beans>
 
 

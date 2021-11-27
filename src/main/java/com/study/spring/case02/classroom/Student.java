@@ -1,6 +1,7 @@
 package com.study.spring.case02.classroom;
 
 import java.util.Set;
+import java.util.function.ToIntFunction;
 
 public class Student {
 	private Integer id;
@@ -25,6 +26,11 @@ public class Student {
 	public void setClazzs(Set<Clazz> clazzs) {
 		this.clazzs = clazzs;
 	}
+	
+	public int getTotalCredits() {
+		return getClazzs().stream().mapToInt(c -> c.getCredit()).sum();
+	}
+	
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", clazzs=" + clazzs + "]";
