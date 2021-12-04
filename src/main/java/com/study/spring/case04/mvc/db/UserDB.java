@@ -22,7 +22,8 @@ public class UserDB implements Serializable {
 			users = new ArrayList<>();
 		}
 		users.add(user);
-		DBUtil.writeObject(this);
+		//DBUtil.writeObject(this);
+		DBUtil.writeJsonFile(this);
 	}
 	
 	// 根據 name 來修改 age
@@ -35,7 +36,8 @@ public class UserDB implements Serializable {
 		if(opt.isPresent()) { // 是否有找到
 			User user = opt.get();
 			user.setAge(age);
-			DBUtil.writeObject(this);
+			//DBUtil.writeObject(this);
+			DBUtil.writeJsonFile(this);
 			System.out.println("修改成功");
 		} else {
 			System.out.println("修改失敗: 找不到此人");
@@ -54,7 +56,8 @@ public class UserDB implements Serializable {
 		if(opt.isPresent()) { // 是否有找到
 			User user = opt.get();
 			users.remove(user);
-			DBUtil.writeObject(this);
+			//DBUtil.writeObject(this);
+			DBUtil.writeJsonFile(this);
 			System.out.println("刪除成功");
 		} else {
 			System.out.println("修改失敗: 找不到此人");
@@ -67,7 +70,7 @@ public class UserDB implements Serializable {
 	
 	// 測試
 	public static void main(String[] args) {
-		UserDB userDB = DBUtil.readObject();
+		UserDB userDB = DBUtil.readJsonFile(); // DBUtil.readObject();
 		//userDB.save(new User("Bobo", 15));
 		//userDB.update("Bobo", 30);
 		//userDB.delete("Bobo");
