@@ -68,9 +68,9 @@ public class UserDB implements Serializable {
 	// 測試
 	public static void main(String[] args) {
 		UserDB userDB = DBUtil.readObject();
-		//userDB.save(new User("Bobo2", 15));
+		//userDB.save(new User("Bobo", 15));
 		//userDB.update("Bobo", 30);
-		//userDB.delete("Bobo2");
+		//userDB.delete("Bobo");
 		System.out.println(userDB.users);
 	}
 	
