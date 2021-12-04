@@ -11,6 +11,10 @@ public class Test1 {
 		ApplicationContext ctx = new  ClassPathXmlApplicationContext("applicationContext3.xml");
 		Cash cash = ctx.getBean("cash", Cash.class);
 		System.out.println(cash);
+		
+		Cash cash2 = ctx.getBean("cash2", Cash.class);
+		System.out.println(cash2);
+		
 	}
 	
 }

@@ -8,10 +8,13 @@ import com.study.spring.case03.Cash;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 
+
+// 僅供物件建立前所設定的初始資料
 public class ExchangeHandler implements BeanPostProcessor {
 
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+		System.out.println("postProcessBeforeInitialization");
 		if(bean instanceof Cash) {
 			Cash cash = (Cash)bean;
 			System.out.println("ExchangeHandler begin: " + cash);
@@ -33,7 +36,12 @@ public class ExchangeHandler implements BeanPostProcessor {
 
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-		// TODO Auto-generated method stub
+		System.out.println("postProcessAfterInitialization");
+		if(bean instanceof Cash) {
+			Cash cash = (Cash)bean;
+			cash.setTwd(cash.getTwd() + 20);
+			return cash;
+		}
 		return bean;
 	}
 
