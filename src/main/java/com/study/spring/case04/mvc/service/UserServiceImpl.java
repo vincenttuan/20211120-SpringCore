@@ -66,7 +66,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public double getAverageAge() {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.queryUsers().stream().mapToInt(User::getAge).average().getAsDouble();
 	}
 }
