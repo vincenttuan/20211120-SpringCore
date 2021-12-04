@@ -22,7 +22,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void add(User user) {
 		if(user != null) {
-			userDao.add(user);
+			if(getUser(user.getName()).isPresent()) { // 是否有同名?
+				System.out.println(user.getName() + " 已存在");
+			} else {
+				userDao.add(user);
+			}
 		}
 	}
 
