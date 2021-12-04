@@ -12,8 +12,7 @@ import com.study.spring.case04.mvc.entity.User;
 @Repository
 public class UserDaoImpl implements UserDao {
 	
-	@Autowired
-	private UserDB userDB;
+	private UserDB userDB = DBUtil.readJsonFile();
 	
 	public UserDaoImpl() {
 		System.out.println("UserDaoImpl");
