@@ -1,6 +1,7 @@
 package case04;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
@@ -29,6 +30,8 @@ public class UserSystem {
 			System.out.println("+---------------------+");
 			System.out.print("請選擇: ");
 			menuChoice();
+			System.out.println("按下 Enter 後繼續...");
+			new Scanner(System.in).nextLine();
 		}
 	}
 	
@@ -49,7 +52,7 @@ public class UserSystem {
 				queryUsers();
 				break;
 			case 5:
-				// 你來寫
+				printAverageAge();
 				break;
 			case 0:
 				System.out.println("離開系統");
@@ -69,11 +72,36 @@ public class UserSystem {
 	}
 	
 	public static void update() {
-			
+		Scanner sc = new Scanner(System.in);
+		System.out.print("請輸入姓名: ");
+		String name = sc.next();
+		Optional<User> opt = userController.getUser(name);
+		if(opt.isPresent()) {
+			User user = opt.get();
+			System.out.println("+----------+----------+");
+			System.out.println("|   name   |    age   |");
+			System.out.println("+----------+----------+");
+			System.out.println(String.format("|%-10s|%10d|", user.getName(), user.getAge()));
+			System.out.println("+----------+----------+");
+			System.out.print("請輸入欲修改的年齡: ");
+			int newAge = sc.nextInt();
+			user.setAge(newAge);
+			userController.update(user);
+		} else {
+			System.out.println("此人不存在");
+		}
 	}
 	
 	public static void delete() {
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("請輸入姓名: ");
+		String name = sc.next();
+		Optional<User> opt = userController.getUser(name);
+		if(opt.isPresent()) {
+			userController.delete(name);
+		} else {
+			System.out.println("此人不存在");
+		}
 	}
 	
 	public static void queryUsers() {
@@ -85,6 +113,10 @@ public class UserSystem {
 			System.out.println(String.format("|%-10s|%10d|", user.getName(), user.getAge()));
 			System.out.println("+----------+----------+");
 		}
+	}
+	
+	public static void printAverageAge() {
+		System.out.printf("平均年齡 %.1f\n", userController.getAverageAge());
 	}
 	
 	public static void main(String[] args) {
