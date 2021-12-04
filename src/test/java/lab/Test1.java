@@ -12,6 +12,7 @@ public class Test1 {
 		RoundBean roundBean = ctx.getBean(RoundBean.class);
 		System.out.println(roundBean.getRoundArea());
 		
+		((ClassPathXmlApplicationContext)ctx).close();
 	}
 	
 }

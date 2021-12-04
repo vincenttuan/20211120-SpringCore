@@ -1,7 +1,6 @@
 package com.study.spring.case02.classroom;
 
 import java.util.Set;
-import java.util.function.ToIntFunction;
 
 public class Student {
 	private Integer id;

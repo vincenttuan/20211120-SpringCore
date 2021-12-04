@@ -55,6 +55,8 @@ public class Test1 {
 		//---------------------------------------------------------------------
 		int total3 = teacher1.getTotalByStudentCredit();
 		System.out.println("Total3 = " + total3);
+		
+		((ClassPathXmlApplicationContext)ctx).close();
 	}
 	
 }

@@ -21,6 +21,7 @@ public class Test4 {
 		Book b4 = ctx.getBean("book4", Book.class);
 		System.out.println(b4);
 		
+		((ClassPathXmlApplicationContext)ctx).close();
 	}
 	
 }

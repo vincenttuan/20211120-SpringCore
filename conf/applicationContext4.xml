@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	
+	<!-- 手動配置 -->
+	<!-- 
+	<bean class="com.study.spring.case04.mvc.entity.User" />
+	<bean class="com.study.spring.case04.mvc.controller.UserController" />
+	<bean class="com.study.spring.case04.mvc.service.UserServiceImpl" />
+	<bean class="com.study.spring.case04.mvc.dao.UserDaoImpl" />
+	-->
+	
+	<!-- 掃描配置: 掃描在指定 package 中有 @ 的類別 --> 
+	<!-- 
+	<context:component-scan base-package="com.study.spring.case04.mvc.entity" />
+	<context:component-scan base-package="com.study.spring.case04.mvc.controller" />
+	<context:component-scan base-package="com.study.spring.case04.mvc.service" />
+	<context:component-scan base-package="com.study.spring.case04.mvc.dao" />
+	-->
+	<context:component-scan base-package="com.study.spring.case04.mvc" />
+	
+</beans>
+
+

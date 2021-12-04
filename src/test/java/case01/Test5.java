@@ -27,6 +27,8 @@ public class Test5 {
 		
 		System.out.println(h1.getName());
 		System.out.println(h1.getWife().getHusband().getName());
+		
+		((ClassPathXmlApplicationContext)ctx).close();
 	}
 	
 }

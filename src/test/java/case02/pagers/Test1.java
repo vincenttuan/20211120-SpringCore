@@ -21,6 +21,8 @@ public class Test1 {
 		Pager3 pager3 = ctx.getBean("pager3", Pager3.class);
 		System.out.println(pager3);
 		
+		((ClassPathXmlApplicationContext)ctx).close();
+		
 	}
 	
 }

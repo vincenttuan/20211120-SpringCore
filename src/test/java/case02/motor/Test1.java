@@ -15,6 +15,7 @@ public class Test1 {
 		Car car2 = (Car)ctx.getBean("car");
 		System.out.println(car2);
 		
+		((ClassPathXmlApplicationContext)ctx).close();
 	}
 	
 }

@@ -3,8 +3,6 @@ package com.study.spring.case03;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
-import com.study.spring.case03.Cash;
-
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 

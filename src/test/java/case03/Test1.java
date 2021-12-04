@@ -22,6 +22,8 @@ public class Test1 {
 		int sum = Arrays.stream(cashs).mapToInt(Cash::getTwd).sum();
 		System.out.println(sum);
 		
+		((ClassPathXmlApplicationContext)ctx).close();
+		
 	}
 	
 }
