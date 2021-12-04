@@ -10,8 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+
 import com.study.spring.case04.mvc.entity.User;
 
+@Component
 public class UserDB implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

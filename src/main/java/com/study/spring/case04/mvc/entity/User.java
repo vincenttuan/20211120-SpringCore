@@ -1,9 +1,11 @@
 package com.study.spring.case04.mvc.entity;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Component;
 
 @Component
-public class User {
+public class User implements Serializable {
 	private String name;
 	private int age;
 	
