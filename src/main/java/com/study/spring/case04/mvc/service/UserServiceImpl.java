@@ -22,7 +22,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void add(User user) {
 		if(user != null) {
-			if(getUser(user.getName()).isPresent()) { // 是否有同名?
+			Optional<User> opt = getUser(user.getName());
+			if(opt != null && opt.isPresent()) { // 是否有同名?
 				System.out.println(user.getName() + " 已存在");
 			} else {
 				userDao.add(user);

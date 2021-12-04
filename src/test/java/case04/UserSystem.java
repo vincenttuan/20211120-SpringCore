@@ -109,9 +109,11 @@ public class UserSystem {
 		System.out.println("+----------+----------+");
 		System.out.println("|   name   |    age   |");
 		System.out.println("+----------+----------+");
-		for(User user : users) {
-			System.out.println(String.format("|%-10s|%10d|", user.getName(), user.getAge()));
-			System.out.println("+----------+----------+");
+		if(users != null) {
+			for(User user : users) {
+				System.out.println(String.format("|%-10s|%10d|", user.getName(), user.getAge()));
+				System.out.println("+----------+----------+");
+			}
 		}
 	}
 	

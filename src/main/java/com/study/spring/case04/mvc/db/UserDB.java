@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.swing.text.html.Option;
+
 import org.springframework.stereotype.Component;
 
 import com.study.spring.case04.mvc.entity.User;
@@ -49,8 +51,12 @@ public class UserDB implements Serializable {
 	
 	// 根據 name 來找到 User
 	public Optional<User> get(String name) {
-		Optional<User> opt = users.stream().filter(u -> u.getName().equals(name)).findFirst();
-		return opt;
+		if(users != null) {
+			Optional<User> opt = users.stream().filter(u -> u.getName().equals(name)).findFirst();
+			return opt;
+		} else {
+			return null;
+		}
 	} 
 	
 	// 根據 name 來刪除
