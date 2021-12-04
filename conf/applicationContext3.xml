@@ -4,7 +4,9 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	
 	<bean id="cash" class="com.study.spring.case03.Cash" scope="prototype"
@@ -14,9 +16,12 @@
 	<bean class="com.study.spring.case03.ExchangeHandler" />
 	
 	<!-- 資源文件的加載  -->
+	<!-- 
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="cash.properties" />
 	</bean>
+	-->
+	<context:property-placeholder location="cash.properties"/>
 	
 	<bean id="cash2" class="com.study.spring.case03.Cash" scope="prototype"
 		c:amount="${cash.amount}" c:currency="${cash.currency}"
