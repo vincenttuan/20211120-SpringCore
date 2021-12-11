@@ -21,10 +21,30 @@ public class ProxyUtil {
 		// 方法: Object invoke(Object proxy, Method method, Object[] args) throws Throwable 
 		InvocationHandler handler = (Object proxy, Method method, Object[] args) -> {
 			Object result = null;
-			// 公用方法
-			System.out.println("紀錄 log 1");
-			// 業務邏輯 (代理方法的呼叫)
-			result = method.invoke(object, args);
+			
+			try {
+				// 公用方法 (前置通知)
+				//System.out.println("前置通知: 紀錄 log 1");
+				MyLogger.before(method, args);
+				// 透過代理程式來影響商業邏輯的結果(使用上要小心)
+				// 假設 method = "div" and args[1] = 0
+				// 強迫回傳 0
+				if(method.getName().equals("div") && 
+						Integer.parseInt(args[1]+"") == 0) {
+					return 0;
+				}
+				// 業務邏輯 (代理方法的呼叫)
+				result = method.invoke(object, args);
+				System.out.println(result);
+			} catch (Exception e) {
+				// 公用方法 (異常通知)
+				//System.out.println("異常通知: 紀錄 error: " + e);
+				MyLogger.throwing(e);
+			} finally {
+				// 公用方法 (後置通知)
+				//System.out.println("後置通知: 紀錄 log 2");
+				MyLogger.end();
+			}
 			
 			return result;
 		};
