@@ -14,6 +14,11 @@ public class TestDyn3 {
 		System.out.println();
 		
 		// 使用 cglib
+		// 建議使用 openjdk 1.8
+		// 下載位置: https://github.com/ojdkbuild/ojdkbuild
+		// 變更 eclipse jre 路徑: Window > Preferences > Java > Installed JREs (按下Edit) 變更  Location 路徑 為
+		// C:\Program Files\ojdkbuild\java-1.8.0-openjdk-1.8.0.232-1\jre
+		
 		Enhancer enhancer = new Enhancer(); // 增強器
 		enhancer.setSuperclass(Message.class); // 目標
 		enhancer.setCallback(new MyMethodInterceptor()); // 回呼並攔截
