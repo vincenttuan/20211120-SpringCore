@@ -29,10 +29,12 @@ public class ProxyUtil {
 				// 透過代理程式來影響商業邏輯的結果(使用上要小心)
 				// 假設 method = "div" and args[1] = 0
 				// 強迫回傳 0
+				/*
 				if(method.getName().equals("div") && 
 						Integer.parseInt(args[1]+"") == 0) {
 					return 0;
 				}
+				*/
 				// 業務邏輯 (代理方法的呼叫)
 				result = method.invoke(object, args);
 				System.out.println(result);
