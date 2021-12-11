@@ -2,6 +2,8 @@ package com.study.spring.case06.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -28,6 +30,18 @@ public class MyCheckAspect {
 	@After(value = "pt()")
 	public void after(){
 		System.out.println("後置通知");
+	}
+	
+	// 返回通知 (可以設定 returning 來接收方法的回傳值)
+	@AfterReturning(value = "pt()", returning = "result")
+	public void afterReturning(Object result) {
+		System.out.println("返回通知: " + result);
+	}
+	
+	// 異常通知 (可以設定 throwing 的異常通知變數)
+	@AfterThrowing(value = "pt()", throwing = "e")
+	public void afterThrowing(Exception e) {
+		System.out.println("異常通知: " + e);
 	}
 	
 	

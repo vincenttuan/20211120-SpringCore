@@ -13,6 +13,8 @@ public class TestAOP1 {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("aop-config.xml");
 		Health health = ctx.getBean("healthImpl", Health.class);
 		System.out.println(health.getBMI(170.0, 60.0));
+		
+		System.out.println(health.getBMI(170.0, -60.0));
 	}
 
 }
