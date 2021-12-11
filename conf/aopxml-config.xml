@@ -11,8 +11,13 @@
 	
 	<aop:config>
 		<aop:aspect ref="myLoggerAspect" order="1">
-			<aop:pointcut expression="execution(* com.study.spring.case06.aopxml.CalcImpl.add(..))" id="pt"/>
+			<aop:pointcut expression="execution(* com.study.spring.case06.aopxml.CalcImpl.*(..))" id="pt"/>
 			<aop:before method="before" pointcut-ref="pt" />
+		</aop:aspect>
+		<aop:aspect ref="myMaskAspect" order="2">
+			<aop:pointcut expression="execution(* com.study.spring.case06.aopxml.Worker.*(..))" id="pt2"/>
+			<aop:before method="before" pointcut-ref="pt2" />
+			<aop:after method="end" pointcut-ref="pt2" />
 		</aop:aspect>
 	</aop:config>
 	

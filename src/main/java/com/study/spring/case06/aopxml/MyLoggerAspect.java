@@ -3,7 +3,9 @@ package com.study.spring.case06.aopxml;
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MyLoggerAspect {
 	
 	// 前置通知
