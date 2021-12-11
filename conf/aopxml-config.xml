@@ -7,5 +7,13 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-
+	<context:component-scan base-package="com.study.spring.case06.aopxml" />
+	
+	<aop:config>
+		<aop:aspect ref="myLoggerAspect" order="1">
+			<aop:pointcut expression="execution(* com.study.spring.case06.aopxml.CalcImpl.add(..))" id="pt"/>
+			<aop:before method="before" pointcut-ref="pt" />
+		</aop:aspect>
+	</aop:config>
+	
 </beans>
