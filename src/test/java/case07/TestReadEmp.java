@@ -40,6 +40,9 @@ public class TestReadEmp {
 		});
 		System.out.println(emps2);
 		
+		// 多筆查詢 3
+		List<Emp> emps3 = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Emp.class));
+		System.out.println(emps3);		
 	}
 
 }
