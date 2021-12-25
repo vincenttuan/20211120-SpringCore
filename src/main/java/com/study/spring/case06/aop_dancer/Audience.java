@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+//@Component // 若使用 java 配置則 @Component 可以不用加入
 public class Audience {
 	
 	@Before("execution(* com.study.spring.case06.aop_dancer.Performance.perform(..))")

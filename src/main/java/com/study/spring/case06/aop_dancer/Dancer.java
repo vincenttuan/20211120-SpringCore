@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component // 若使用 java 配置則 @Component 可以不用加入
 public class Dancer implements Performance {
 	
 	@Override
