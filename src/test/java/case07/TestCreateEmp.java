@@ -22,10 +22,10 @@ public class TestCreateEmp {
 	NamedParameterJdbcTemplate namedParameterJdbcTemplate = ctx.getBean("namedParameterJdbcTemplate", NamedParameterJdbcTemplate.class);
 	@Test
 	public void test() {
-		//case1(); // 單筆新增
+		case1(); // 單筆新增
 		//case2("Happy", 23); // 單筆新增
 		//case3(); // 多筆新增
-		case4(); // 多筆新增
+		//case4(); // 多筆新增
 	}
 	
 	// 單筆新增 I
