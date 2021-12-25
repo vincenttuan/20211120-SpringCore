@@ -10,7 +10,7 @@ public class Dancer implements Performance {
 	@Override
 	public void perform() {
 		System.out.println("舞者開始表演, 跳舞, 轉圈, 翻滾...");
-		if(new Date().getTime() % 3 == 0) {
+		if(new Date().getTime() % 2 == 0) {
 			throw new RuntimeException("舞者跌倒");
 		}
 	}
