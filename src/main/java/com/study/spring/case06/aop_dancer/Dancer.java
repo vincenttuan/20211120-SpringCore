@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Dancer implements Performance {
-
+	
 	@Override
 	public void perform() {
 		System.out.println("舞者開始表演, 跳舞, 轉圈, 翻滾...");
