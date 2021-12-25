@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -42,7 +43,7 @@ public class TestReadEmp {
 		
 		// 多筆查詢 3
 		List<Emp> emps3 = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Emp.class));
-		System.out.println(emps3);		
+		System.out.println(emps3);
 	}
 
 }
