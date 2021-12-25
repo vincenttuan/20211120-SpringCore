@@ -1,5 +1,9 @@
 package case07;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -14,14 +18,15 @@ public class TestCreateEmp {
 	@Test
 	public void test() {
 		//case1(); // 單筆新增
-		case2("Happy", 23); // 單筆新增
+		//case2("Happy", 23); // 單筆新增
+		case3(); // 多筆新增
 	}
 	
 	// 單筆新增 I
 	private void case1() {
 		String sql = "INSERT INTO emp(ename, age) VALUES(?, ?)";
-		jdbcTemplate.update(sql, "JoJo2", 21);
-		System.out.println("Insert OK 1");
+		int row = jdbcTemplate.update(sql, "JoJo2", 21);
+		System.out.println("Insert OK 1: " + row);
 	}
 	
 	// 單筆新增 II
@@ -30,11 +35,20 @@ public class TestCreateEmp {
 		MapSqlParameterSource params = new MapSqlParameterSource()
 				.addValue("ename", ename)
 				.addValue("age", age);
-		namedParameterJdbcTemplate.update(sql, params);
-		System.out.println("Insert OK 2");
+		int row = namedParameterJdbcTemplate.update(sql, params);
+		System.out.println("Insert OK 2: " + row);
 	}
 	
-	
+	// 多筆新增 I
+	public void case3() {
+		String sql = "INSERT INTO emp(ename, age) VALUES(?, ?)";
+		List<Object[]> list = new ArrayList<>();
+		list.add(new Object[] {"Jean", 22});
+		list.add(new Object[] {"Anita", 23});
+		list.add(new Object[] {"Jo", 24});
+		int[] rows = jdbcTemplate.batchUpdate(sql, list);
+		System.out.println("Batch insert: " + Arrays.toString(rows));
+	}
 	
 	
 	
