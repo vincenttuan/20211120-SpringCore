@@ -30,7 +30,7 @@ public class TestReadEmp {
 			Integer eid = rs.getInt("eid");
 			String ename = rs.getString("ename");
 			Integer age = rs.getInt("age");
-			Date createtime = rs.getDate("createtime");
+			Date createtime = rs.getTimestamp("createtime");
 			
 			Emp emp = new Emp();
 			emp.setEid(eid);
