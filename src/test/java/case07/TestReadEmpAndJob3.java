@@ -30,7 +30,7 @@ public class TestReadEmpAndJob3 {
 				.newResultSetExtractor(Job.class);
 		
 		List<Job> jobs = jdbcTemplate.query(sql, resultSetExtractor);
-		System.out.println(jobs);
 		
+		jobs.stream().forEach(job -> System.out.printf("%s -> %s\n", job.getJname(), job.getEmp().getEname()));
 	}
 }
