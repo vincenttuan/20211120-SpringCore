@@ -27,6 +27,7 @@
 		<property name="jdbcUrl" value="${jdbc.url}" />
 		<property name="user" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
+		
 		<property name="maxConnectionAge" value="300" />
 		<property name="maxIdleTimeExcessConnections" value="50" />
 		<property name="debugUnreturnedConnectionStackTraces" value="true" />
@@ -41,5 +42,12 @@
 	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
     	<constructor-arg ref="dataSource"/>
 	</bean>
-
+	
+	<!-- 配置事務管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" ></property>
+    </bean>
+    <!-- 開啟註解驅動，對事務相關的註解進行掃描與解析 -->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+	
 </beans>
