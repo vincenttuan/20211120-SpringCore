@@ -2,6 +2,8 @@ package com.study.spring.case07.tx.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.study.spring.case07.tx.dao.BookDao;
 
@@ -9,7 +11,8 @@ import com.study.spring.case07.tx.dao.BookDao;
 public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookDao bookDao;
-
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	@Override
 	public void buyOne(Integer wid, Integer bid) {
 		// 消耗一本庫存
@@ -19,7 +22,8 @@ public class BookServiceImpl implements BookService {
 		// 減去錢包裡的金額
 		bookDao.updateWallet(wid, price);
 	}
-
+	
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public void buyMany(Integer wid, Integer... bids) {
 		for(Integer bid : bids) {
