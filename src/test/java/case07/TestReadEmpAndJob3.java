@@ -26,7 +26,7 @@ public class TestReadEmpAndJob3 {
 		
 		ResultSetExtractor<List<Job>> resultSetExtractor = 
 				JdbcTemplateMapperFactory.newInstance()
-				.addKeys("eid")
+				.addKeys("jid")
 				.newResultSetExtractor(Job.class);
 		
 		List<Job> jobs = jdbcTemplate.query(sql, resultSetExtractor);
