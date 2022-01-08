@@ -1,19 +1,16 @@
 package case07;
 
-import java.sql.ResultSet;
-import java.util.Date;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.study.spring.case07.jdbc.Emp;
 import com.study.spring.case07.jdbc.Job;
-import org.simpleflatmapper.jdbc.spring.*;
+import org.simpleflatmapper.jdbc.spring.JdbcTemplateMapperFactory;
 
 public class TestReadEmpAndJob2 {
 	public static void main(String[] args) {
