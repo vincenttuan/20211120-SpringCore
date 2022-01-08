@@ -1,6 +1,7 @@
 package com.study.spring.case07.jdbc;
 
 import java.util.Date;
+import java.util.List;
 
 // Entity
 public class Emp {
@@ -8,6 +9,8 @@ public class Emp {
 	private String ename;
 	private Integer age;
 	private Date createtime;
+	// 加入 job
+	private List<Job> jobs;
 	
 	public Emp() {
 		
@@ -48,6 +51,14 @@ public class Emp {
 
 	public void setCreatetime(Date createtime) {
 		this.createtime = createtime;
+	}
+
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
 	}
 
 	@Override
