@@ -44,6 +44,22 @@ public class TestReadEmp {
 		// 多筆查詢 3
 		List<Emp> emps3 = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Emp.class));
 		System.out.println(emps3);
+		
+		// 單筆查詢 使用 queryForObject
+		// 上課同學自行練習
+		// 例如: 查詢 int eid = 2;
+		sql = "SELECT eid, ename, age, createtime FROM emp WHERE eid=?";
+		Emp emp = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Emp>(Emp.class), 2);
+		System.out.println(emp);
+		sql = "SELECT ename FROM emp WHERE eid=?";
+		String ename = jdbcTemplate.queryForObject(sql, String.class, 2);
+		System.out.println(ename);
+		
+		// 資料筆數
+		sql = "SELECT count(*) FROM emp";
+		Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
+		System.out.println("資料筆數:" + count);
+		
 	}
 
 }
