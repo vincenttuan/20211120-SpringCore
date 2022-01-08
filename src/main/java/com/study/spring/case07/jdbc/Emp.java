@@ -9,6 +9,7 @@ public class Emp {
 	private String ename;
 	private Integer age;
 	private Date createtime;
+	
 	// 加入 job
 	private List<Job> jobs;
 	
