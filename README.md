@@ -1,2 +1,1 @@
-# Spring20211120
-桃認 Spring20211120
+# Spring Core 20211120 (桃認周六班)
